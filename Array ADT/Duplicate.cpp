@@ -49,6 +49,24 @@ void Duplicate3(Array arr){
         }
     }
 }
+// if array is not shorted
+void Duplicate4(Array arr){
+    int count = 0;
+    for(int i = 0; i < arr.length; i++){
+        count = 1;
+        if(arr.A[i] != -1){
+            for (int j = i + 1; j < arr.length; j++){
+                if(arr.A[i] == arr.A[j]){
+                    count++;
+                    arr.A[j] = -1;
+                }
+            }
+        }
+        if(count > 1){
+            cout << arr.A[i] << " is " << count << " times" << endl;
+        }
+    }
+}
 int main(){
     Array arr;
     int n,i,find;
@@ -61,7 +79,7 @@ int main(){
     }
     arr.length = n;
     Display(arr);
-    Duplicate2(arr);
-    Duplicate3(arr);
+    // Duplicate2(arr);
+    Duplicate4(arr);
 }
 
